@@ -17,11 +17,6 @@ class CbvArticle(models.Model):
         return self.description[0:250] 
 
 
-
-
-
-
-
 class Person(models.Model):
     fname = models.CharField(max_length=100)
     lname = models.CharField(max_length=100)
