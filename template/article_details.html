@@ -1,0 +1,23 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+    <div class="container">
+      
+    
+
+<article class="blog-post">
+        <h2 class="blog-post-title"> {{ article_detail.title }}</h2>
+        <p class="blog-post-meta"> {{ article_detail.datetime }} by <a href="#">Mark</a></p>
+        
+        <p> <img src="{{article_detail.img.url }}" class="imgsize img-fluid rounded-top" alt=""></p>
+        <p> {{ article_detail.description }}</p>
+      </article>
+
+
+
+
+
+</div>
+
+
+{% endblock %}

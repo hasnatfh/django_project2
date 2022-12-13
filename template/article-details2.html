@@ -1,0 +1,21 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+    <div class="container">
+      
+    
+
+<article class="blog-post">
+        <h2 class="blog-post-title">   {{ ardetails.title }} </h2>
+        
+        <p> <img src="{{ardetails.img.url }}" class="imgsize img-fluid rounded-top" alt=""></p>
+        <p> {{ ardetails.description }}</p>
+        <p class="blog-post-meta"> {{ ardetails.datetime }} by <a href="#">Mark</a></p>
+      </article>
+
+
+
+</div>
+
+
+{% endblock %}

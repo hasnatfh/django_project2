@@ -1,0 +1,24 @@
+
+{% extends 'includes/base.html' %}
+
+{% block title %}
+    Contact Us
+{% endblock  %}
+
+{% block content %}
+    <div class="container">
+    <h1>Contact us </h1>
+    <div class="col-5 mt-5">
+        <form method="POST">
+        {% csrf_token %}
+        Name: <input type="text" id="name" name="fname" class="mb-4 form-control">
+        email: <input type="text" id="name" name="femail" class="mb-4 form-control">
+        message: <textarea type="text" id="message" name="fmessage" rows="5" class="mb-4 form-control md-textarea"></textarea>
+        <input type="submit" value="SEND" class="mb-4 btn btn-outline-success" >
+     </form>
+
+    </div>
+    </div>
+{% endblock %}
+
+
