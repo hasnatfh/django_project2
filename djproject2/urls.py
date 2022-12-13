@@ -34,8 +34,7 @@ from django.urls import include, path
 urlpatterns = [
 
     path('', include('proj2app.urls')),
-    path('dashboard/', include('proj2app2.urls')),
-    #path('', include('proj2app.urls'), name = 'contact_us'),
+    path('cbv/', include('proj2app2.urls')),
     path('admin/', admin.site.urls), 
 
 ]

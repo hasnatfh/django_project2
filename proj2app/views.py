@@ -1,21 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+
 from .models import Article, ContactInfo
 from proj2app2.models import Person
 
 
 # Create your views here.
-
-class ArticleListView(ListView):
-     model = Article
-     template_name = 'cindex.html'
-     context_object_name = "article_list"
-     paginate_by = 1
-
-class ArticleDetailView(DetailView):
-     model = Article
-     template_name = 'article_details.html'
-     context_object_name = "article_detail"
      
 
 

@@ -1,12 +1,23 @@
 from django.shortcuts import render
-
+from django.views.generic import ListView, DetailView
+from .models import CbvArticle
 
 # Create your views here.
 
-def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
-    
-def add_dboard(request):
-    return render(request, 'dashboard/add_dboard.html')
 
- 
+
+
+class CbvArticleListView(ListView):
+     model = CbvArticle
+     template_name = 'cindex.html'
+     context_object_name = "article_list"
+     paginate_by = 1
+
+class CbvArticleDetailView(DetailView):
+     model = CbvArticle
+     template_name = 'article_details.html'
+     context_object_name = "article_detail"
+
+
+
+

@@ -1,10 +1,9 @@
 from django.urls import path
 from proj2app2 import views
+from .views import CbvArticleListView, CbvArticleDetailView
 
 
 urlpatterns = [
-    path('', views.dashboard, name = 'dashboard'), 
-    path('add_dboard/', views.add_dboard, name = 'add_dboard'), 
-    # path('contact/', views.contact, name = 'contact_us'), 
+    path('cindex/', CbvArticleListView.as_view(), name = 'c_index'), 
+    path('cindex/<int:pk>/details/', CbvArticleDetailView.as_view(), name = 'article_details'), 
 ]
-
