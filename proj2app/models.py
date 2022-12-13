@@ -29,7 +29,7 @@ class ContactInfo(models.Model):
     return self.cname
 
   class Meta:
-        verbose_name_plural = 'AllContactInfo'
+        verbose_name_plural = 'All Contact Info'
 
 
 
