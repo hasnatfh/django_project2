@@ -1,0 +1,51 @@
+{% extends "includes/base.html" %}
+
+{% block title %}
+    Contact us | Cbv 
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <h1><span class="badge bg-primary">Contact Us</span></h1>
+
+ 
+
+
+    <div class="py-5">
+        <div class="row">
+            <div class="col-12">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                         <!--This message will show after submit form-->           
+                        {% if messages %}
+                            <div class="alert alert-primary w-50" role="alert">
+                                {% for message in messages %}
+                                    {{ message }} 
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                    <div class="form-group">
+                        <input class="btn btn-primary py-2 px-5" type="submit" value="Send">             
+ 
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+<!-- 
+    {% if messages %}
+        <div class="alert alert-primary w-50" role="alert">
+            {% for message in messages %}
+                {{ message }} 
+            {% endfor %}
+        </div>
+    {% endif %}
+
+  -->  
+    
+    </div>
+{% endblock  %}
