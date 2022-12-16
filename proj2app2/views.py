@@ -5,7 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 #from django.views.generic.edit import FormView
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, FormView
 from .models import CbvArticle, Person, CbvContactinfo 
-from .forms import CbvContactForm, SignUpViewform2
+from .forms import CbvContactForm, SignUpViewform2, LoginForm2
+from django.contrib.auth.views import LoginView, LogoutView
 # Create your views here.
 
 class CbvContactView(SuccessMessageMixin,CreateView):
@@ -52,18 +53,38 @@ class SignUpView3(FormView):
      redirect_authenticated_user = True
      success_url = reverse_lazy('login')
 
+#This is a function for keep logged in after registration/signup
      def form_valid(self, form):
         user = form.save()
         if user is not None:
             login(self.request, user)
-        return super(UserSignup, self).form_valid(form)
+        return super(SignUpView3, self).form_valid(form)
 
 #This is a function that disallows you to register a new account while one is still logged in. 
      def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return redirect('c_index')
-        return super(UserSignup, self).get(*args, **kwargs)
+        return super(SignUpView3, self).get(*args, **kwargs)
 
 
-class LoginView():
-     pass
+class UserLoginView(LoginView):
+     template_name = 'cbvtemplate/login.html'
+     redirect_authenticated_user = True
+     fields = '__all__' 
+
+     def get_success_url(self):
+          return reverse_lazy('c_index')
+
+
+
+class UserLoginView2(LoginView):
+     form_class = LoginForm2
+     template_name = 'cbvtemplate/login2.html'
+     
+     redirect_authenticated_user = True
+     def get_success_url(self):
+          return reverse_lazy('c_index')
+
+
+class UserLogoutView(LogoutView):
+     next_page = 'cbvlogin' 

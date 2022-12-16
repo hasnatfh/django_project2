@@ -38,14 +38,21 @@
               </li>
               <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Class-based</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="{% url 'home' %}admin/">Admin </a>
-              <a class="dropdown-item" href="{% url 'c_index' %}">Cindex </a>
-              <a class="dropdown-item" href="{% url 'c_contact' %}">Ccontact </a>
-              <a class="dropdown-item" href="{% url 'sign_up' %}">SignUp</a>
-              <a class="dropdown-item" href="{% url 'sign_up2' %}">SignUp2</a>
-              <a class="dropdown-item" href="{% url 'sign_up3' %}">SignUp3</a>
-            </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="{% url 'home' %}admin/">Admin </a>
+                <a class="dropdown-item" href="{% url 'c_index' %}">Cindex </a>
+                <a class="dropdown-item" href="{% url 'c_contact' %}">Ccontact </a>
+                <a class="dropdown-item" href="{% url 'cbvsign_up' %}">SignUp</a>
+                <a class="dropdown-item" href="{% url 'cbvsign_up2' %}">SignUp2</a>
+                <a class="dropdown-item" href="{% url 'cbvsign_up3' %}">SignUp3</a>
+              </div>
+          </li>
+              <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cbv-login</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="{% url 'cbvlogin' %}">Login </a>
+                <a class="dropdown-item" href="{% url 'cbvlogin2' %}">Login2 </a>
+              </div>
           </li>
 
               
@@ -62,14 +69,14 @@
                   <span class="nav-link  ">| </span>
                 </li>
                   <li class="nav-item ">
-                  <a class="nav-link  " href="{% url 'logout' %}">Logout</a>
+                  <a class="nav-link  " href="{% url 'cbvlogout' %}">Logout</a>
                 </li>
               {% else %}
                 <li class="nav-item ">
                   <a class="nav-link  " href="{% url 'login' %}">Login</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link  " href="{% url 'sign_up' %}">SignUp</a>
+                  <a class="nav-link  " href="{% url 'cbvsign_up' %}">SignUp</a>
                 </li>
                 
               {% endif %}    

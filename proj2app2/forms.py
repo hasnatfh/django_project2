@@ -1,7 +1,7 @@
 from django import forms
 from .models import CbvContactinfo
 from django.forms import ModelForm, TextInput, EmailInput, Textarea, PasswordInput 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import password_validation 
 
@@ -74,3 +74,6 @@ class SignUpViewform2(UserCreationForm):
         }
 
 
+#login2 form
+class LoginForm2(AuthenticationForm):
+    username = forms.CharField(label='Email / Username')
