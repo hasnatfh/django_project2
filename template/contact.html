@@ -11,13 +11,28 @@
     <div class="col-5 mt-5">
         <form method="POST">
         {% csrf_token %}
-        Name: <input type="text" id="name" name="fname" class="mb-4 form-control">
-        email: <input type="text" id="name" name="femail" class="mb-4 form-control">
+        Name: <span class="required">*</span><input type="text" id="name" name="fname" class="mb-4 form-control" Required>
+        email: <input type="email" id="name" name="femail" class="mb-4 form-control" Required>
         message: <textarea type="text" id="message" name="fmessage" rows="5" class="mb-4 form-control md-textarea"></textarea>
-        <input type="submit" value="SEND" class="mb-4 btn btn-outline-success" >
+        <input type="submit" value="SEND" class="mb-4 btn btn-outline-success w-25" >
      </form>
 
     </div>
+
+
+    {% if messages %}
+        <div class="alert alert-primary w-50" role="alert">
+            {% for message in messages %}
+                {{ message }} 
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+
+
+
+
     </div>
 {% endblock %}
 
