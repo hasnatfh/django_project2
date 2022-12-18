@@ -16,11 +16,13 @@ class CbvContactView(SuccessMessageMixin,CreateView):
      success_url = reverse_lazy('c_contact')
      success_message = 'Your message sent successfully.'
 
+
 class CbvArticleListView(ListView):
      model = CbvArticle
      template_name = 'cbvtemplate/cindex.html'
      context_object_name = "article_list"
      paginate_by = 1
+
 
 class CbvArticleDetailView(DetailView):
      model = CbvArticle
@@ -35,23 +37,22 @@ class CbvArticleDetailView(DetailView):
         return context
 
 
-
 class SignUpView(CreateView):
      form_class = UserCreationForm
      success_url = reverse_lazy('c_index')
-     template_name = 'cbvtemplate/signup.html'
+     template_name = 'cbvtemplate/csignup.html'
     
 
 class SignUpView2(CreateView):
      form_class = SignUpViewform2
      success_url = reverse_lazy('c_index')
-     template_name = 'cbvtemplate/signup2.html'
+     template_name = 'cbvtemplate/csignup2.html'
 
 class SignUpView3(FormView):
-     template_name = 'cbvtemplate/signup3.html'
+     template_name = 'cbvtemplate/csignup3.html'
      form_class = UserCreationForm
      redirect_authenticated_user = True
-     success_url = reverse_lazy('login')
+     success_url = reverse_lazy('cbvlogin')
 
 #This is a function for keep logged in after registration/signup
      def form_valid(self, form):
@@ -68,7 +69,7 @@ class SignUpView3(FormView):
 
 
 class UserLoginView(LoginView):
-     template_name = 'cbvtemplate/login.html'
+     template_name = 'cbvtemplate/clogin.html'
      redirect_authenticated_user = True
      fields = '__all__' 
 
@@ -76,10 +77,9 @@ class UserLoginView(LoginView):
           return reverse_lazy('c_index')
 
 
-
 class UserLoginView2(LoginView):
      form_class = LoginForm2
-     template_name = 'cbvtemplate/login2.html'
+     template_name = 'cbvtemplate/clogin2.html'
      
      redirect_authenticated_user = True
      def get_success_url(self):
