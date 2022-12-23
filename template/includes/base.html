@@ -15,7 +15,7 @@
   </head>
   <body>
   <header>
-    <div class="container">
+
         
     <nav class="navbar navbar-expand-lg navbar-dark nav-bg">
         <div class="container-fluid">
@@ -36,12 +36,21 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'contact_us' %}">Contact</a>
               </li>
+              
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">fbvCURD</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="{% url 'fbhome' %}">fbvHome </a>
+                <a class="dropdown-item" href="{% url 'fbadd' %}">fbadd </a>
+                
+          </li>
               <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Flogin-signup</a>
               <div class="dropdown-menu" aria-labelledby="dropdownId">
                 <a class="dropdown-item" href="{% url 'signup' %}">Signup </a>
                 <a class="dropdown-item" href="{% url 'signup2' %}">signup2 </a>
                 <a class="dropdown-item" href="{% url 'signup3' %}">signup3 </a>
+                <a class="dropdown-item" href="{% url 'login' %}">login </a>
                 <a class="dropdown-item" href="{% url 'login2' %}">login2 </a>
               </div>
           </li>
@@ -96,7 +105,7 @@
         </div>
       </nav>
             
-    </div>
+    
 
 </header>
 

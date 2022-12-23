@@ -35,6 +35,7 @@ urlpatterns = [
 
     path('', include('proj2app.urls')),
     path('cbv/', include('proj2app2.urls')),
+    path('fbv/', include('fbcrudapp.urls')),
     path('admin/', admin.site.urls), 
 
 ]

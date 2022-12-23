@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #my apps
     'proj2app',
     'proj2app2',
+    'fbcrudapp',
     #formapp
     'crispy_forms',
 ]
