@@ -1,5 +1,7 @@
 {
-    "git.enabled": false
+    "git.enabled": false,
+    "diffEditor.codeLens": true,
+    "editor.tabCompletion": "on"
 }
 
 

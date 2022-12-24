@@ -28,10 +28,16 @@
          
             <ul class="list-group list-group-flush mt-4">
               <li class="list-group-item">  <h3 class="display-7 fw-bold lh-1 "> {{ crud_list_detail.title }}</h3> </li>
+              <li class="list-group-item">   
+                 {% if crud_list_detail.fbv_img %}
+                   <img src="{{ crud_list_detail.fbv_img.url }}" width="400" height="300" class="img-fluid rounded-top" alt=""> 
+                {% else %}
+                   <img src="https://dummyimage.com/400x300/0C4B33/ffffff.jpg&text=Demo+image" width="400" height="300" class="img-fluid rounded-top" alt="">
+                {% endif %} </li>
               <li class="list-group-item"><p> {{ crud_list_detail.description }}</p> </li>
         
           </ul>
- 
+            <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'fbhome' %}" role="button"> <i class="bi-chevron-double-left"></i> Back</a> 
 
       </div>
     </div>

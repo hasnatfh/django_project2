@@ -15,10 +15,11 @@ def fbhome_list(request):
         }
     return render(request, 'fbvtemplate/fbindex.html', context)
 
-
+#'''
 def fbcrud_add(request):
-    form = FbCrudForm(request.POST or None)
-    if request.method == "POST":
+    form = FbCrudForm()
+    if request.method == 'POST':
+        form = FbCrudForm(request.POST or None, request.FILES)
         if form.is_valid():
             form.save()
             return redirect ('fbhome')
@@ -27,8 +28,22 @@ def fbcrud_add(request):
         }
     return render(request, 'fbvtemplate/fbadd.html', context)
 
+'''
+def fbcrud_add(request):
+    if request.method == 'POST':
+        form = FbCrudForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Save the form data to the database
+            form.save()
+            return redirect('fbhome')
+    else:
+        form = FbCrudForm()
+    return render(request, 'fbvtemplate/fbadd.html', {'form': form})
+
+#'''
 
 '''   
+# this function for without image upload. only for text input
 def fbcrud_add2(request):
     if request.method == 'POST':
         form = FbCrudForm(request.POST)
@@ -40,6 +55,31 @@ def fbcrud_add2(request):
 '''
 
 def fbcrud_update(request, id):
+    obj = FbCrudModel.objects.get(id=id)
+    if request.method == 'POST':
+        form = FbCrudForm(request.POST, request.FILES, instance=obj)
+        if form.is_valid():
+            form.save()
+            return redirect('fbhome')
+    else:
+        form = FbCrudForm(instance=obj)
+
+    #context = {"update_form":form }    
+    return render(request, 'fbvtemplate/fbupdate.html', {"update_form":form }) #context)
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+def fbcrud_update(request, id):
     #context ={}
     obj = FbCrudModel.objects.get(id=id) 
     #or, get_object_or_404(FbCrudModel, id = id)
@@ -49,9 +89,14 @@ def fbcrud_update(request, id):
             form.save()
             return redirect ('fbhome')
     context = {
-        "update_form":form
+        'update_form':form
         }
     return render(request, 'fbvtemplate/fbupdate.html', context)
+'''
+
+
+
+
 
 '''
 def fbcrud_update2(request, id):
@@ -83,4 +128,27 @@ def fblist_details(request, id):
         'crud_list_detail':datalist2
         }
     return render(request, 'fbvtemplate/fbdetail.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

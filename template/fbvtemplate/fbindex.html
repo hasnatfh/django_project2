@@ -28,24 +28,32 @@
          
             <ul class="list-group flist-group-flush">
              {% for item in crud_list %}
-              <li class="list-group-item"> <h3 class="display-7 fw-bold lh-1 fh-title "><a class="text-decoration-none" href="{% url 'fbdetails' item.id %}" role="button">{{ item.title }} </a></h3>
+              <li class="list-group-item"> <h3 class="display-7 fw-bold lh-1 fh-title "><a class="text-decoration-none" href="{% url 'fbdetails' item.id %}" role="button"> {{ item.title }} </a></h3>
+              <h6>{{item.datetime}}</h6>
+                {% if item.fbv_img %}
+                  <img src="{{ item.fbv_img.url }}" width="100" height="100" class="img-fluid rounded-top" alt=""> 
+                {% else %}
+                 <img src="https://dummyimage.com/400x300/0C4B33/ffffff.jpg&text=Demo+image" width="100" height="100" class="img-fluid rounded-top" alt="">
+
+                {% endif %} 
+               
+              {% if user.is_authenticated %}
               <a class="btn btn-primary mt-2" href="{% url 'fbupdate' item.id %}"> edit/update </a>
               <a class="btn btn-primary mt-2" href="{% url 'fbdetails' item.id %}" role="button">Details</a> 
-              <a class="btn btn-primary mt-2" href="{% url 'fbdelete' item.id %}" role="button">Delete</a> 
-              
+              <a class="btn btn-primary mt-2" href="{% url 'fbdelete' item.id %}" role="button"><i class="bi bi-trash"></i>Delete</a> 
+              {% endif %}
+
                </li>
-              
-              
             {% endfor %}
           </ul>
+          {% if user.is_authenticated %}
            <a class="btn btn-outline-success px-4 mt-5" href="{% url 'fbadd' %}" role="button">Create/Add</a> 
-
+          {% endif %} 
       </div>
     </div>
   </div>
-    
+ 
 
-  
 
 </main>
 
