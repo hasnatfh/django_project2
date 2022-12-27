@@ -1,0 +1,70 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+    CKeditor Home
+{% endblock  %}
+
+{% block content %}
+<main>
+ <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 fh-title">CKeditor | Function based CRUD Operation with CKeditor</h1>
+        <h6 class="display-6 fw-bold lh-1 fh-title"><small class="text-muted">Tutorial:</small></h6>
+        <h4><small class="text-muted"> <a href="https://www.pycodemates.com/2022/03/integrate-ckeditor-to-django-admin-and-form-fields.html" class="text-decoration-none"> How to integrate CKEditor to your Django Admin and form fields </a></small> </h4>
+
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3 mt-5">
+           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'ckhome' %}" role="button">List</a> 
+           <a class="btn btn-outline-success btn-lg px-4" href="{% url 'ckadd' %}" role="button">Create/Add</a> 
+           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'ckhome' %}" role="button">Update</a> 
+           <a class="btn btn-outline-danger btn-lg px-4" href="{% url 'ckhome' %}" role="button">Delete</a> 
+           <a class="btn btn-outline-info btn-lg px-4" href="{% url 'ckhome'  %}" role="button">Details</a> 
+        </div>
+        <div >
+           <h2 class="display-5 fw-bold lh-1 fh-title"> CKeditor List View</h2> 
+         </div>
+         
+            <ul class="list-group flist-group-flush">
+             {% for item in cke_list %}
+              <li class="list-group-item"> <h3 class="display-7 fw-bold lh-1 fh-title "><a class="text-decoration-none" href="{% url 'ckdetails' item.id %}" role="button"> {{ item.title }} </a></h3>
+              <h6>{{item.date}}</h6>
+              <p>{{item.content | upper | striptags | slice:":10"}}</p>
+                {% if item.ck_img %}
+                  <img src="{{ item.ck_img.url }}" width="100" height="100" class="img-fluid rounded-top" alt=""> 
+                {% else %}
+                 <img src="https://dummyimage.com/400x300/0C4B33/ffffff.jpg&text=Demo+image" width="100" height="100" class="img-fluid rounded-top" alt="">
+                {% endif %} 
+               <p> {{item.content | striptags | truncatewords:50 }} ... <a class=" mt-2 ftext-decoration-none" href="{% url 'ckdetails' item.id %}" role="button">Read More</a> </p>
+              {% if user.is_authenticated %}
+              <a class="btn btn-primary mt-2" href="{% url 'ckupdate' item.id %}"> edit/update </a>
+              <a class="btn btn-primary mt-2" href="{% url 'ckdetails' item.id %}" role="button">Details</a> 
+              <a class="btn btn-primary mt-2" href="{% url 'ckdelete' item.id %}" role="button"><i class="bi bi-trash"></i>Delete</a> 
+              {% endif %}
+
+               </li>
+            {% endfor %}
+          </ul>
+          {% if user.is_authenticated %}
+           <a class="btn btn-outline-success px-4 mt-5" href="{% url 'ckadd' %}" role="button">Create/Add</a> 
+          {% endif %} 
+      </div>
+    </div>
+  </div>
+ 
+
+
+</main>
+
+
+
+
+
+
+
+{% endblock %}
+
+

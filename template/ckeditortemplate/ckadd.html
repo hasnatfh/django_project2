@@ -1,0 +1,45 @@
+{% extends "includes/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    CKeditor add CRUD 
+{% endblock  %}
+
+
+{% block content %}
+        <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">CKeditor add in CRUD Operation</h1>
+      <div class="w-50"> 
+    
+      <!-- 
+    <form class="d-flex">
+        {% csrf_token %}
+        <div class="col">
+            <div class="mb-3">
+                <label for="" class="form-label">Title:</label>
+                  {{form.title}}  
+                <label for="" class="form-label">Description:</label>
+                   {{form.description}}  
+                  <input name="sumbit" class="btn btn-primary mt-4 px-5 w-25" type="submit" value="Add">
+                 
+            </div>
+        </div>
+    </form>
+      --> 
+
+    <form method="POST" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{ckadd_form.media}}
+        {{ ckadd_form|crispy }}
+       <input name="sumbit" class="btn btn-primary mt-2 w-25" type="submit" value="CKadd">
+       
+    </form>
+     <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'ckhome' %}" role="button"> <i class="bi-chevron-double-left"></i> Back</a> 
+     <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'ckhome' %}" role="button">View the List</a> 
+  </div>
+
+ 
+
+     
+    </div>
+{% endblock  %}

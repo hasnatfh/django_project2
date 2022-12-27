@@ -68,16 +68,6 @@ def fbcrud_update(request, id):
     return render(request, 'fbvtemplate/fbupdate.html', {"update_form":form }) #context)
 
 
-
-
-
-
-
-
-
-
-
-
 '''
 def fbcrud_update(request, id):
     #context ={}

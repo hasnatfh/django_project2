@@ -29,13 +29,15 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path 
+from django.urls import include, path, re_path
 
 urlpatterns = [
 
     path('', include('proj2app.urls')),
     path('cbv/', include('proj2app2.urls')),
-    path('fbv/', include('fbcrudapp.urls')),
+    path('fbvcurd/', include('fbcrudapp.urls')),
+    path('cke/', include('djckeditorapp.urls')),
+    re_path(r'^ckeditor/', include('ckeditor_uploader.urls')), # The CKEditor path
     path('admin/', admin.site.urls), 
 
 ]

@@ -1,0 +1,63 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    FBV Home
+{% endblock  %}
+
+{% block content %}
+<main>
+ <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 fh-title">Function based CRUD Operation</h1>
+        <h1 class="display-4 fw-bold lh-1 fh-title"><small class="text-muted">  </small></h1>
+
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3 mt-5">
+           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'fbhome' %}" role="button">List</a> 
+           <a class="btn btn-outline-success btn-lg px-4" href="{% url 'fbadd' %}" role="button">Create/Add</a> 
+           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'fbadd' %}" role="button">Update</a> 
+           <a class="btn btn-outline-danger btn-lg px-4" href="{% url 'fbadd' %}" role="button">Delete</a> 
+           <a class="btn btn-outline-info btn-lg px-4" href="{% url 'fbadd' %}" role="button">Details</a> 
+        </div>
+        <div >
+           <h2 class="display-4 fw-bold lh-1 fh-title"> FBV Delete View</h2> 
+         </div>
+         
+    
+ 
+    <div style="padding-left:100px;">
+        <h3>Delete CKeditor CRUD item:</h3>
+        
+        <form method="post" >
+            {% csrf_token %}
+            <h3 style="color:#DC3545;">{{cklist_delete.title}}</h3>
+            <input type="submit" class="btn btn-primary mt-2 w-25" value="Confirm">
+            <a class="btn btn-primary mt-2 w-25" href="{% url 'ckhome' %}" role="button">Cancel</a> 
+        </form>
+    </div>
+
+
+ 
+ 
+
+      </div>
+    </div>
+  </div>
+    
+
+  
+
+</main>
+
+
+
+
+
+
+
+{% endblock %}
+
+

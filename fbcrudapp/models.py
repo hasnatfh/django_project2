@@ -14,3 +14,6 @@ class FbCrudModel(models.Model):
 
     def __str__(self):
         return self.title
+
+    def excerpt(self):
+        return self.description[0:100]
