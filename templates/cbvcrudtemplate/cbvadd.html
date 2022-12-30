@@ -1,14 +1,14 @@
 {% extends "includes/base.html" %}
-
+{% load crispy_forms_tags %}
 {% block title %}
-    FBV Update CRUD 
+    CBV add CRUD 
 {% endblock  %}
 
 
 {% block content %}
         <div class="p-5 mb-4 bg-light rounded-3">
       <div class="container-fluid py-3">
-        <h1 class="display-5 fw-bold">FBV Update in CRUD Operation</h1>
+        <h1 class="display-5 fw-bold">CBV add in CRUD Operation</h1>
       <div class="w-50"> 
     
       <!-- 
@@ -26,17 +26,16 @@
         </div>
     </form>
       --> 
-<h1> Update your List Item:</h1>
+
     <form method="POST" enctype="multipart/form-data">
        {% csrf_token %}
-       {{update_form.as_p }}
-       <input name="sumbit" class="btn btn-primary mt-2 w-25" type="submit" value="Update/Save"> 
-       <a class="btn btn-primary mt-2 w-25" href="{% url 'fbhome' %}" role="button">Cancel</a> 
+       {{form|crispy}}
+       <input name="sumbit" class="btn btn-primary mt-2 w-25" type="submit" value="add">
+       
     </form>
-    <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'fbhome' %}" role="button">View the List</a> 
-
-
-      </div>
+     <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'cbvhome' %}" role="button"> <i class="bi-chevron-double-left"></i> Back</a> 
+     <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'cbvhome' %}" role="button">View the List</a> 
+  </div>
 
  
 

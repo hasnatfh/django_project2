@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'proj2app2',
     'fbcrudapp',
     'djckeditorapp',
+    'cbvcrudapp',
     #formapp
     'crispy_forms',
     'ckeditor', #CKeditor config
@@ -66,7 +67,7 @@ ROOT_URLCONF = 'djproject2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR/ 'template'],
+        'DIRS': [ BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

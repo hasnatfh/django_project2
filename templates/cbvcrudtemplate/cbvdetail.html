@@ -3,7 +3,7 @@
 
 
 {% block title %}
-    FBV Home
+    CBV Home
 {% endblock  %}
 
 {% block content %}
@@ -11,33 +11,35 @@
  <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 fh-title">Function based CRUD Operation</h1>
+        <h1 class="display-4 fw-bold lh-1 fh-title">Class based CRUD Operation</h1>
         <h1 class="display-4 fw-bold lh-1 fh-title"><small class="text-muted">  </small></h1>
 
         
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3 mt-5">
-           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'fbhome' %}" role="button">List</a> 
+           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'cbvhome' %}" role="button">List</a> 
            <a class="btn btn-outline-success btn-lg px-4" href="{% url 'fbadd' %}" role="button">Create/Add</a> 
            <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'fbadd' %}" role="button">Update</a> 
            <a class="btn btn-outline-danger btn-lg px-4" href="{% url 'fbadd' %}" role="button">Delete</a> 
            <a class="btn btn-outline-info btn-lg px-4" href="{% url 'fbadd' %}" role="button">Details</a> 
         </div>
         <div >
-           <h2 class="display-4 fw-bold lh-1 fh-title"> FBV Details View</h2> 
+           <h2 class="display-4 fw-bold lh-1 fh-title"> CBV Details View</h2> 
          </div>
          
             <ul class="list-group list-group-flush mt-4">
-              <li class="list-group-item">  <h3 class="display-7 fw-bold lh-1 "> {{ crud_list_detail.title }}</h3> </li>
+              <li class="list-group-item">  <h3 class="display-7 fw-bold lh-1 "> {{ cbvcrudlist_detail.title }}</h3> </li>
+              <li class="list-group-item"> Published by: {{ cbvcrudlist_detail.cbvdate }} </li>
+
               <li class="list-group-item">   
-                 {% if crud_list_detail.fbv_img %}
-                   <img src="{{ crud_list_detail.fbv_img.url }}" width="400" height="300" class="img-fluid rounded-top" alt=""> 
+                 {% if cbvcrudlist_detail.cbv_img %}
+                   <img src="{{ cbvcrudlist_detail.cbv_img.url }}" width="400" height="300" class="img-fluid rounded-top" alt=""> 
                 {% else %}
-                   <img src="https://dummyimage.com/400x300/0C4B33/ffffff.jpg&text=Demo+image" width="400" height="300" class="img-fluid rounded-top" alt="">
+                   <img src="https://dummyimage.com/400x300/0C4B33/ffffff.jpg&text=cbvDemo+image" width="400" height="300" class="img-fluid rounded-top" alt="">
                 {% endif %} </li>
-              <li class="list-group-item"><p> {{ crud_list_detail.description }}</p> </li>
+              <li class="list-group-item"><p> {{ cbvcrudlist_detail.content }}</p> </li>
         
           </ul>
-            <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'fbhome' %}" role="button"> <i class="bi-chevron-double-left"></i> Back</a> 
+            <a class="btn btn-outline-success btn-lg px-4 mt-5" href="{% url 'cbvhome' %}" role="button"> <i class="bi-chevron-double-left"></i> Back</a> 
 
       </div>
     </div>

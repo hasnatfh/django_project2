@@ -1,0 +1,71 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    CBV Home
+{% endblock  %}
+
+{% block content %}
+<main>
+ <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 fh-title">Class based CRUD Operation</h1>
+        <h1 class="display-4 fw-bold lh-1 fh-title"><small class="text-muted">  </small></h1>
+
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3 mt-5">
+           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'cbvhome' %}" role="button">List</a> 
+           <a class="btn btn-outline-success btn-lg px-4" href="{% url 'cbvadd' %}" role="button">Create/Add</a> 
+           <a class="btn btn-outline-primary btn-lg px-4" href="{% url 'fbadd' %}" role="button">Update</a> 
+           <a class="btn btn-outline-danger btn-lg px-4" href="{% url 'fbadd' %}" role="button">Delete</a> 
+           <a class="btn btn-outline-info btn-lg px-4" href="{% url 'fbadd'  %}" role="button">Details</a> 
+        </div>
+        <div >
+           <h2 class="display-5 fw-bold lh-1 fh-title"> CBV List View</h2> 
+         </div>
+         {% if cbvcrud_list %}
+            <ul class="list-group flist-group-flush">
+             {% for item in cbvcrud_list %}
+              <li class="list-group-item"> <h3 class="display-7 fw-bold lh-1 fh-title "><a class="text-decoration-none" href="{{ item.get_absolute_url }}" role="button"> {{ item.title }} </a></h3>
+              <h6>Published by: {{item.cbvdate}}</h6>
+               
+                {% if item.cbv_img %}
+                  <img src="{{ item.cbv_img.url }}" width="100" height="100" class="img-fluid rounded-top" alt=""> 
+                {% else %}
+                 <img src="https://dummyimage.com/400x300/0C4B33/ffffff.jpg&text=cbvDemo+image" width="100" height="100" class="img-fluid rounded-top" alt="">
+                {% endif %} 
+               <p> {{item.content | truncatewords:10}}... <a class=" mt-2 ftext-decoration-none" href="{% url 'fbdetails' item.id %}" role="button">Read More</a> </p>
+              {% if user.is_authenticated %}
+              <a class="btn btn-primary mt-2" href="{% url 'cbvupdate' item.id %}"> edit/update </a>
+              <a class="btn btn-primary mt-2" href="{{ item.get_absolute_url }}" role="button">Details</a> 
+              <a class="btn btn-primary mt-2" href="{% url 'cbvdelete' item.id %}" role="button"><i class="bi bi-trash"></i>Delete</a> 
+              {% endif %}
+
+               </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+         <h5 class="px-4 mt-3"> <i class="bi bi-x-octagon-fill"></i> No content available.</h5>
+        {% endif %}
+        {% if user.is_authenticated %}
+           <a class="btn btn-outline-success px-4 mt-3" href="{% url 'cbvadd' %}" role="button">Create/Add</a> 
+          {% endif %} 
+      </div>
+    </div>
+  </div>
+ 
+
+
+</main>
+
+
+
+
+
+
+
+{% endblock %}
+
+

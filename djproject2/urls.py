@@ -35,8 +35,9 @@ urlpatterns = [
 
     path('', include('proj2app.urls')),
     path('cbv/', include('proj2app2.urls')),
-    path('fbvcurd/', include('fbcrudapp.urls')),
+    path('fbvcrud/', include('fbcrudapp.urls')),
     path('cke/', include('djckeditorapp.urls')),
+    path('cbvcrud/', include('cbvcrudapp.urls')),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')), # The CKEditor path
     path('admin/', admin.site.urls), 
 

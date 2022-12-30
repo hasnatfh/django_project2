@@ -3,7 +3,7 @@
 
 
 {% block title %}
-    FBV Home
+    CBV Delete
 {% endblock  %}
 
 {% block content %}
@@ -11,7 +11,7 @@
  <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 fh-title">Function based CRUD Operation</h1>
+        <h1 class="display-4 fw-bold lh-1 fh-title">Class based CRUD Operation</h1>
         <h1 class="display-4 fw-bold lh-1 fh-title"><small class="text-muted">  </small></h1>
 
         
@@ -23,7 +23,7 @@
            <a class="btn btn-outline-info btn-lg px-4" href="{% url 'fbadd' %}" role="button">Details</a> 
         </div>
         <div >
-           <h2 class="display-4 fw-bold lh-1 fh-title"> FBV Delete View</h2> 
+           <h2 class="display-4 fw-bold lh-1 fh-title"> CBV Delete View</h2> 
          </div>
          
       
@@ -31,13 +31,13 @@
 
  
     <div style="padding-left:100px;">
-        <h3>Delete FBV CRUD item:</h3>
+        <h3>Delete CBV CRUD item:</h3>
         
         <form method="post">
             {% csrf_token %}
-            <h3 style="color:#DC3545;">{{crud_list_delete.title}}</h3>
+            <h3 style="color:#DC3545;">{{cbvcrudlist_delete.title}}</h3>
             <input type="submit" class="btn btn-primary mt-2 w-25" value="Confirm">
-            <a class="btn btn-primary mt-2 w-25" href="{% url 'fbhome' %}" role="button">Cancel</a> 
+            <a class="btn btn-primary mt-2 w-25" href="{% url 'cbvhome' %}" role="button">Cancel</a> 
         </form>
     </div>
 
